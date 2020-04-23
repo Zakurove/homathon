@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "emergency/base.html" %}
+<!-- {% load static %} -->
+  {% block body_block%}
+
+
+  <div class="jumbotron jumbotron-fluid bg-secondary">
+    <div class="container ">
+      <h1 class="display-4 text-warning font-weight-bold">Welcome to codepoiesis!</h1>
+      <p class="lead text-warning font-weight-bold">Your humbel medical advisor...</p>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3 class="text-secondary">In case of suspicion please answer the following questions to compare with medical criteria:</h3>
+      <a type="button" name="button" class="btn btn-info btn-lg btn-block" href="/homathon_app/other">Answer</a>
+    </div>
+    <div class="col-sm">
+
+    </div>
+    <div class="col-sm">
+
+    </div>
+  </div>
+</div>
+
+  {% endblock %}
