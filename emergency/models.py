@@ -10,3 +10,6 @@ class Symx(models.Model):
     third_symx = models.CharField(max_length=264)
     fourth_symx = models.CharField(max_length=264)
     fifth_symx = models.CharField(max_length=264)
+    
+    class test(models.Model):
+        test = models.CharField(max_length=264)
