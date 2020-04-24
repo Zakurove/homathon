@@ -4,57 +4,90 @@
 
     {% block body_block %}
 
-    <div class="container">
 
 
 
-    </div>
+    <h1>This is the results page</h1>
 
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm">
 
-        </div>
-        <div class="col-sm">
-          <h2 class="text-info">Please type your symptoms:</h2>
 
-            <form method="POST" >
-              {% csrf_token %}
-              {{ form.errors }}
 
-              <div class="form-group">
-              <label class=" font-weight-bold">1st Symptom </label>
-              {{ form.first_symx }}
-            </div>
 
-            <div class="form-group">
-              <label class=" font-weight-bold">2nd Symptom </label>
-              {{ form.second_symx }}
-            </div>
-            <div class="form-group">
-            <label class=" font-weight-bold">3rd Symptom </label>
+                    <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">MRN</th>
+                <th scope="col">Name</th>
+                <th scope="col">Action 1</th>
+                <th scope="col">Action 2</th>
+                <th scope="col">Action 3</th>
+              </tr>
+            </thead>
+            <tbody>
+  {% if symptoms %}
 
-            {{ form.third_symx }}
-          </div>
-          <div class="form-group">
-          <label class=" font-weight-bold">4th Symptom </label>
-          {{ form.fourth_symx }}
-        </div>
-        <div class="form-group">
-        <label class=" font-weight-bold">5th Symptom </label>
-        {{ form.fifth_symx }}
-      </div>
 
-              <input type="submit" class='btn btn-warning btn-block' value="Submit">
-            </form>
-        </div>
-        <div class="col-sm">
+      {% for person in symptoms %}
+              <tr>
+                <th scope="row"></th>
+                <td>{{person.MRN_number}}</td>
+                <td>{{person.first_name}} {{person.last_name}}</td>
+                {% if  person.first_symx == "weakness in one side of the body" or person.first_symx == "sudden confusion" or person.first_symx == "trouble speaking" or person.first_symx == "sudden trouble in vision" or person.first_symx == "loss of balance" %}
+                <td>The patient is in need of conducting an EEG.</td>
+                {% endif %}
+                {% if  person.second_symx == "weakness in one side of the body" or person.second_symx == "sudden confusion" or person.second_symx == "trouble speaking" or person.second_symx == "sudden trouble in vision" or person.second_symx == "loss of balance" %}
+                <td>The patient is in need of conducting an EEG.</td>
+                {% endif %}
+                {% if  person.third_symx == "weakness in one side of the body" or person.third_symx == "sudden confusion" or person.third_symx == "trouble speaking" or person.third_symx == "sudden trouble in vision" or person.third_symx == "loss of balance" %}
+                <td>The patient is in need of conducting an EEG.</td>
+                {% endif %}
+                {% if  person.fourth_symx == "weakness in one side of the body" or person.fourth_symx == "sudden confusion" or person.fourth_symx == "trouble speaking" or person.fourth_symx == "sudden trouble in vision" or person.fourth_symx == "loss of balance" %}
+                <td>The patient is in need of conducting an EEG.</td>
+                {% endif %}
+                {% if  person.fifth_symx == "weakness in one side of the body" or person.fifth_symx == "sudden confusion" or person.fifth_symx == "trouble speaking" or person.fifth_symx == "sudden trouble in vision" or person.fifth_symx == "loss of balance" %}
+                <td>The patient is in need of conducting an EEG.</td>
+                {% endif %}
 
-        </div>
-      </div>
-    </div>
+                <!-- GLUCOSE -->
+                {% if  person.first_symx == "confusion" or person.first_symx == "visual disturbances" or person.first_symx == "Seziure" or person.first_symx == "loss of consciousness" %}
+                <td>The patient's glucose levels need to be tested.</td>
+                {% endif %}
+                {% if  person.second_symx == "confusion" or person.second_symx == "visual disturbances" or person.second_symx == "Seziure" or person.second_symx == "loss of consciousness" %}
+                <td>The patient's glucose levels need to be tested.</td>
+                {% endif %}
+                {% if  person.third_symx == "confusion" or person.third_symx == "visual disturbances" or person.third_symx == "Seziure" or person.third_symx == "loss of consciousness" %}
+                <td>The patient's glucose levels need to be tested.</td>
+                {% endif %}
+                {% if  person.fourth_symx == "confusion" or person.fourth_symx == "visual disturbances" or person.fourth_symx == "Seziure" or person.fourth_symx == "loss of consciousness" %}
+                <td>The patient's glucose levels need to be tested.</td>
+                {% endif %}
+                {% if  person.fifth_symx == "confusion" or person.fifth_symx == "visual disturbances" or person.fifth_symx == "Seziure" or person.fifth_symx == "loss of consciousness" %}
+                <td>The patient's glucose levels need to be tested.</td>
+                {% endif %}
+                <!-- CTPA -->
+                {% if  person.first_symx == "sudden shortness of breath" or person.first_symx == "rapid respiratory rate" or person.first_symx == "coughing up blood" %}
+                <td>The patient is in need of CT pulmonary angiogram.</td>
+                {% endif %}
+                {% if  person.second_symx == "sudden shortness of breath" or person.second_symx == "rapid respiratory rate" or person.second_symx == "coughing up blood" %}
+                <td>The patient is in need of CT pulmonary angiogram.</td>
+                {% endif %}
+                {% if  person.third_symx == "sudden shortness of breath" or person.third_symx == "rapid respiratory rate" or person.third_symx == "coughing up blood" %}
+                <td>The patient is in need of CT pulmonary angiogram.</td>
+                {% endif %}
+                {% if  person.fourth_symx == "sudden shortness of breath" or person.fourth_symx == "rapid respiratory rate" or person.fourth_symx == "coughing up blood" %}
+                <td>The patient is in need of CT pulmonary angiogram.</td>
+                {% endif %}
+                {% if  person.fifth_symx == "sudden shortness of breath" or person.fifth_symx == "rapid respiratory rate" or person.fifth_symx == "coughing up blood" %}
+                <td>The patient is in need of CT pulmonary angiogram.</td>
+                {% endif %}
+              </tr>
+        {% endfor %}
+    {% endif %}
 
+                </tbody>
+              </table>
 
 
 

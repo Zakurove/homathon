@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# Create your models here
 class Symx(models.Model):
     MRN_number = models.CharField(max_length=264)
     first_name = models.CharField(max_length=264)

@@ -7,6 +7,8 @@ from .forms import  nSymx
 def index(request):
     return render(request,'emergency/index.html')
 
+def next(request):
+    return render(request,'emergency/next.html')
 
 def results(request):
     symptom_list = Symx.objects.order_by('MRN_number')
@@ -20,7 +22,7 @@ def symptoms(request):
         form = nSymx(request.POST)
         if form.is_valid():
             form.save(commit=True)
-            return results(request)
+            return next(request)
         else:
             print('ERROR FORM INVALID')
 
