@@ -8,8 +8,10 @@ class Symx(models.Model):
     first_symx = models.CharField(max_length=264)
     second_symx = models.CharField(max_length=264)
     third_symx = models.CharField(max_length=264)
-    fourth_symx = models.CharField(max_length=264)
-    fifth_symx = models.CharField(max_length=264)
-    
+    fourth_symx = models.CharField(max_length=264, blank=True)
+    fifth_symx = models.CharField(max_length=264, blank=True)
+    diagnosis = models.CharField(max_length=264, blank=True)
+
+
     class test(models.Model):
         test = models.CharField(max_length=264)

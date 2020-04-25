@@ -20,6 +20,7 @@
                 <th scope="col">#</th>
                 <th scope="col">MRN</th>
                 <th scope="col">Name</th>
+                <th scope="col">PDD</th>
                 <th scope="col">Action 1</th>
                 <th scope="col">Action 2</th>
                 <th scope="col">Action 3</th>
@@ -34,6 +35,7 @@
                 <th scope="row"></th>
                 <td>{{person.MRN_number}}</td>
                 <td>{{person.first_name}} {{person.last_name}}</td>
+                <td>{{person.diagnosis}}</td>
                 {% if  person.first_symx == "weakness in one side of the body" or person.first_symx == "sudden confusion" or person.first_symx == "trouble speaking" or person.first_symx == "sudden trouble in vision" or person.first_symx == "loss of balance" %}
                 <td>The patient is in need of conducting an EEG.</td>
                 {% endif %}
@@ -83,6 +85,8 @@
                 <td>The patient is in need of CT pulmonary angiogram.</td>
                 {% endif %}
               </tr>
+
+
         {% endfor %}
     {% endif %}
 
