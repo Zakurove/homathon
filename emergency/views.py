@@ -10,6 +10,12 @@ def index(request):
 def next(request):
     return render(request,'emergency/next.html')
 
+def ER(request):
+    return render(request,'emergency/ER.html')
+
+def home(request):
+    return render(request,'emergency/home.html')
+
 def results(request):
     symptom_list = Symx.objects.order_by('MRN_number')
     symptom_dict = {"symptoms":symptom_list}
@@ -18,6 +24,7 @@ def results(request):
 
 
 def symptoms(request):
+
     #Required vars for logic
     flu = 0
     hypoglycemia = 0
@@ -88,7 +95,12 @@ def symptoms(request):
         new_author.save()
         if form.is_valid():
             form.save_m2m()
-            return next(request)
+
+            if new_author.diagnosis == "Hypoglycemia" or new_author.diagnosis == "Food Poisoning" :
+                return ER(request)
+            if new_author.diagnosis == "Flu":
+                return home(request)
+
         else:
             print('ERROR FORM INVALID')
     return render(request,'emergency/symptoms.html',{'form':form})
